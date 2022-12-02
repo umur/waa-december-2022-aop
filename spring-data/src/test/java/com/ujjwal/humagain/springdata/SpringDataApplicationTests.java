@@ -1,13 +1,13 @@
-package com.ujjwalhumagain.springaop;
+package com.ujjwal.humagain.springdata;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringAopApplicationTests {
+class SpringDataApplicationTests {
 
-    @Test
-    void contextLoads() {
-    }
+	@Test
+	void contextLoads() {
+	}
 
 }
