@@ -19,25 +19,21 @@ public class AddressController {
 
     @GetMapping("/{id}")
     public AddressDto getById(@PathVariable int id){
-        System.out.println("Get request received for id: " + String.valueOf(id));
         return addressService.getById(id);
     }
 
     @PostMapping
     public void create(@RequestBody AddressDto address){
-        System.out.println("Post request received: " + address.toString());
         addressService.save(address);
     }
 
     @PutMapping("/{id}")
     public void update(@PathVariable int id, @RequestBody AddressDto address){
-        System.out.println("Update request received for id: " + String.valueOf(id) + " with request body: " + address.toString());
         addressService.update(id, address);
     }
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable int id){
-        System.out.println("Delete request received for id: " + String.valueOf(id));
         addressService.delete(id);
     }
 }

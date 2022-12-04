@@ -1,5 +1,6 @@
 package edu.miu.aop.service.impl;
 
+import edu.miu.aop.aspect.annotation.ExecutionTime;
 import edu.miu.aop.dto.ProductDto;
 import edu.miu.aop.dto.ReviewDto;
 import edu.miu.aop.entity.Category;
@@ -54,17 +55,20 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    @ExecutionTime
     public Iterable<ProductDto> findAllByPriceGreaterThan(double minPrice) {
         return convertIteratorToList(productRepo.findAllByPriceGreaterThan(minPrice));
     }
 
     @Override
+    @ExecutionTime
     public Iterable<ProductDto> findAllByCategoryAndPriceLessThan(String cat, double maxPrice) {
         Category category = categoryRepo.findByName(cat);
         return convertIteratorToList(productRepo.findAllByCategoryAndPriceLessThan(category, maxPrice));
     }
 
     @Override
+    @ExecutionTime
     public Iterable<ProductDto> findAllByNameContainingIgnoreCase(String name) {
         return convertIteratorToList(productRepo.findAllByNameContainingIgnoreCase(name));
     }

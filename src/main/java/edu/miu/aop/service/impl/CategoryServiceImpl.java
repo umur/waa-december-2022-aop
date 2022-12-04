@@ -1,5 +1,6 @@
 package edu.miu.aop.service.impl;
 
+import edu.miu.aop.aspect.annotation.ExecutionTime;
 import edu.miu.aop.dto.CategoryDto;
 import edu.miu.aop.entity.Category;
 import edu.miu.aop.repository.CategoryRepo;
@@ -17,6 +18,7 @@ public class CategoryServiceImpl implements CategoryService {
     private final CategoryRepo categoryRepo;
     private final ModelMapper modelMapper;
     @Override
+    @ExecutionTime
     public Iterable<CategoryDto> getAll() {
         List<CategoryDto> list = new ArrayList<>();
         var categories = categoryRepo.findAll();
