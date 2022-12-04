@@ -1,5 +1,7 @@
 package com.example.assignment3.service.impl;
 
+import com.example.assignment3.aspect.annotation.ExecutionTime;
+import com.example.assignment3.aspect.annotation.Logger;
 import com.example.assignment3.dto.AddressDto;
 import com.example.assignment3.entity.Address;
 import com.example.assignment3.repo.AddressRepo;
@@ -23,6 +25,8 @@ public class AddressServiceImpl implements AddressService {
         this.utilityService = utilityService;
     }
 
+    @ExecutionTime
+    @Logger
     @Override
     public List<AddressDto> getAddresses() {
         List<AddressDto> addressList = new ArrayList<>();

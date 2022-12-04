@@ -1,5 +1,7 @@
 package com.example.assignment3.service.impl;
 
+import com.example.assignment3.aspect.annotation.ExecutionTime;
+import com.example.assignment3.aspect.annotation.Logger;
 import com.example.assignment3.dto.ProductDto;
 import com.example.assignment3.entity.Product;
 import com.example.assignment3.repo.ProductRepo;
@@ -22,6 +24,8 @@ public class ProductServiceImpl implements ProductService {
         this.utils = utils;
     }
 
+    @ExecutionTime
+    @Logger
     @Override
     public List<ProductDto> getProducts() {
         List<ProductDto> products = new ArrayList<>();

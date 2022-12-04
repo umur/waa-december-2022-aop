@@ -1,5 +1,7 @@
 package com.example.assignment3.service.impl;
 
+import com.example.assignment3.aspect.annotation.ExecutionTime;
+import com.example.assignment3.aspect.annotation.Logger;
 import com.example.assignment3.dto.CategoryDto;
 import com.example.assignment3.entity.Category;
 import com.example.assignment3.repo.CategoryRepo;
@@ -23,6 +25,8 @@ public class CategoryServiceImpl implements CategoryService {
         this.utilityService =  utilityService;
     }
 
+    @ExecutionTime
+    @Logger
     @Override
     public List<CategoryDto> getCategories() {
         List<CategoryDto> categories = new ArrayList<>();
