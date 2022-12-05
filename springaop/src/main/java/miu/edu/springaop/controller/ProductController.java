@@ -22,6 +22,10 @@ public class ProductController {
 
         return productService.getAllProducts();
     }
+    @PostMapping
+    public ProductDto save(@RequestBody ProductDto p){
+            return productService.save(p);
+    }
 
     @ExecutionTime
     @GetMapping("/{id}")
