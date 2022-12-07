@@ -35,7 +35,6 @@ public class ActivityLogController {
         //System.out.println("Hello I am Checking in");
         return null;
     }
-
     @PostMapping
     public ActivityLogDTO addActivity(){
 
@@ -43,7 +42,6 @@ public class ActivityLogController {
         ActivityLog activityLog = new ActivityLog();
         return this.toDTO(activityLogService.save(activityLog));
     }
-
     public ActivityLogDTO toDTO(ActivityLog activityLog){
         return modelMapper.map(activityLog, ActivityLogDTO.class);
     }
