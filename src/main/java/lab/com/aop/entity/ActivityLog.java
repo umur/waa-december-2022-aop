@@ -1,4 +1,4 @@
-package lab.com.aop.aspect.entity;
+package lab.com.aop.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

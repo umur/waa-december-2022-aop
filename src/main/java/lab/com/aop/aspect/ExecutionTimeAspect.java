@@ -1,7 +1,7 @@
-package lab.com.aop.aspect.annotation;
+package lab.com.aop.aspect;
 
-import lab.com.aop.aspect.entity.ActivityLog;
-import lab.com.aop.aspect.service.ActivityLogService;
+import lab.com.aop.entity.ActivityLog;
+import lab.com.aop.service.ActivityLogService;
 import lombok.RequiredArgsConstructor;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
