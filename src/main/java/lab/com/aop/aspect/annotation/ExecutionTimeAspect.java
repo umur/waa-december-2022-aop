@@ -1,15 +1,21 @@
 package lab.com.aop.aspect.annotation;
 
+import lab.com.aop.aspect.entity.ActivityLog;
+import lab.com.aop.aspect.service.ActivityLogService;
+import lombok.RequiredArgsConstructor;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+
 @Aspect
 @Component
+@RequiredArgsConstructor
 public class ExecutionTimeAspect {
-
+    public final ActivityLogService service;
     @Pointcut("@annotation(lab.com.aop.aspect.annotation.ExecutionTime)")
     public void a(){};
 
@@ -22,7 +28,9 @@ public class ExecutionTimeAspect {
         var result = pjp.proceed();
 
         long endTime = System.nanoTime();
+        ActivityLog log = new ActivityLog(LocalDate.now(),pjp.getTarget().getClass().getSimpleName(),(endTime-startTime));
 
+        service.save(log);
         return result;
     }
 
